@@ -1,7 +1,6 @@
 import httpStatus from 'http-status';
 import AppError from '../../errors/AppError';
 import { User } from '../user/user.model';
-import { Book } from '../book/book.model';
 
 const getAllUserFromDB = async () => {
   const result = await User.find();
@@ -22,18 +21,7 @@ const blockUserIntoDB = async (id: string) => {
   return result;
 };
 
-const deleteBlogIntoDB = async (id: string) => {
-  const existingBlog = await Book.findById(id);
-  if (!existingBlog) {
-    throw new AppError(httpStatus.NOT_FOUND, 'Book is not found');
-  }
-
-  const result = await Book.findByIdAndDelete(id);
-  return result;
-};
-
 export const AdminService = {
   getAllUserFromDB,
   blockUserIntoDB,
-  deleteBlogIntoDB,
 };

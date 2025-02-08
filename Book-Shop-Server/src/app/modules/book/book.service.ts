@@ -23,6 +23,14 @@ const getAllBooksFromDB = async (query: Record<string, unknown>) => {
   return result;
 };
 
+const getSingleBookFromDB = async (id: string) => {
+  const result = await Book.findById(id);
+  if (!result) {
+    throw new AppError(httpStatus.NOT_FOUND, 'Book is not found');
+  }
+  return result;
+};
+
 const updateBookFromDB = async (id: string, payload: Partial<IBook>) => {
   const isBookExist = await Book.findById(id);
   if (!isBookExist) {
@@ -49,6 +57,7 @@ const deleteBookIntoDB = async (id: string) => {
 export const BookService = {
   createBookIntoDB,
   getAllBooksFromDB,
+  getSingleBookFromDB,
   updateBookFromDB,
   deleteBookIntoDB,
 };

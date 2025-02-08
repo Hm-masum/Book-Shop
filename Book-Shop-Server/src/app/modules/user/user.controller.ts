@@ -44,8 +44,48 @@ const refreshToken = catchAsync(async (req, res) => {
   });
 });
 
+const changePassword = catchAsync(async (req, res) => {
+  const user = req.user;
+  const { ...passwordData } = req.body;
+  const result = await UserService.changePassword(user, passwordData);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Password Updated successfully',
+    data: result,
+  });
+});
+
+const getSingleUser = catchAsync(async (req, res) => {
+  const { id } = req.user;
+  const result = await UserService.getSingleUserFromDB(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User retrieve successfully',
+    data: result,
+  });
+});
+
+const updateUser = catchAsync(async (req, res) => {
+  const { id } = req.user;
+  const result = await UserService.updateUserFromDB(id, req.body);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User updated successfully',
+    data: result,
+  });
+});
+
 export const UserControllers = {
   createUser,
   loginUser,
   refreshToken,
+  changePassword,
+  updateUser,
+  getSingleUser,
 };

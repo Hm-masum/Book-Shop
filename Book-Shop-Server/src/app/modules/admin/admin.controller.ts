@@ -4,13 +4,13 @@ import sendResponse from '../../utils/sendResponse';
 import { AdminService } from './admin.service';
 
 const getAllUser = catchAsync(async (req, res) => {
-  await AdminService.getAllUserFromDB();
+  const result = await AdminService.getAllUserFromDB();
 
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'users fetches successfully',
-    data: [],
+    message: 'Users fetches successfully',
+    data: result,
   });
 });
 
@@ -26,20 +26,7 @@ const blockUser = catchAsync(async (req, res) => {
   });
 });
 
-const deleteBlog = catchAsync(async (req, res) => {
-  const { id } = req.params;
-  await AdminService.deleteBlogIntoDB(id);
-
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Book deleted successfully',
-    data: [],
-  });
-});
-
 export const AdminController = {
   getAllUser,
   blockUser,
-  deleteBlog,
 };
