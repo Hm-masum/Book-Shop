@@ -14,10 +14,17 @@ const auth = (...requiredRoles: TUserRole[]) => {
       throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized');
     }
 
-    const decoded = jwt.verify(
-      token as string,
-      config.jwt_access_secret as string,
-    ) as JwtPayload;
+    let decoded;
+
+    try {
+      decoded = jwt.verify(
+        token as string,
+        config.jwt_access_secret as string,
+      ) as JwtPayload;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
+    } catch (error) {
+      throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized');
+    }
 
     const { email, role } = decoded;
 

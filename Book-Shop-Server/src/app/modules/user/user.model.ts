@@ -18,7 +18,7 @@ const userSchema = new Schema<TUser, UserModel>(
       unique: true,
     },
     password: { type: String, required: true, select: 0 },
-    phone: { type: Number, required: true },
+    phone: { type: Number, default: null },
     address: { type: String, default: null },
     image: { type: String, default: null },
     role: { type: String, enum: ['admin', 'user'], default: 'user' },
