@@ -1,9 +1,11 @@
+import FeaturesProducts from "../components/home/FeaturesProducts";
 import Slider from "../components/home/Slider";
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col gap-5">
       <Slider />
+      <FeaturesProducts />
     </div>
   );
 };

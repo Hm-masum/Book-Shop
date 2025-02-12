@@ -10,7 +10,7 @@ import { useAppDispatch } from "../redux/hooks";
 import { setUser } from "../redux/features/auth/authSlice";
 import Swal from "sweetalert2";
 import { verifyToken } from "../utils/verifyToken";
-import ButtonBig from "../components/common/ButtonBig";
+import ButtonSm from "../components/common/ButtonSm";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -123,7 +123,7 @@ const Login = () => {
                 </span>
               </div>
             </div>
-            <ButtonBig text={"Login"}></ButtonBig>
+            <ButtonSm size="lg" text={"Login"}></ButtonSm>
           </div>
         </form>
 

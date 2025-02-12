@@ -10,7 +10,9 @@ export interface IBook {
     | 'Mystery'
     | 'Thrillers'
     | 'History'
-    | 'Religious';
+    | 'Religious'
+    | 'Poetry'
+    | 'Science';
   image: string;
   description: string;
   quantity: number;

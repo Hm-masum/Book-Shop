@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 import { verifyToken } from "../utils/verifyToken";
 import { useAppDispatch } from "../redux/hooks";
 import { setUser } from "../redux/features/auth/authSlice";
-import ButtonBig from "../components/common/ButtonBig";
+import ButtonSm from "../components/common/ButtonSm";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -151,7 +151,7 @@ const Register = () => {
               </div>
             </div>
 
-            <ButtonBig text={"Register"}></ButtonBig>
+            <ButtonSm size="lg" text={"Register"}></ButtonSm>
           </div>
         </form>
 

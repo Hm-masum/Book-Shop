@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import error from "../assets/Error.png";
-import { Button } from "../components/ui/button";
+import ButtonSm from "../components/common/ButtonSm";
 
 const ErrorPage = () => {
   return (
@@ -12,9 +12,7 @@ const ErrorPage = () => {
       />
 
       <Link to={"/"} className="flex items-center justify-center mt-8">
-        <Button className="bg-purple-800  font-semibold py-6">
-          Go To Home
-        </Button>
+        <ButtonSm text="Go To Home" />
       </Link>
     </div>
   );

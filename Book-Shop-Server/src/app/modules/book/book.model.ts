@@ -18,6 +18,8 @@ const bookSchema = new Schema<IBook>(
           'Thrillers',
           'History',
           'Religious',
+          'Science',
+          'Poetry',
         ],
         message: '{VALUE} is not valid',
       },

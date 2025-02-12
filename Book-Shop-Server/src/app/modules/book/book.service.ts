@@ -17,10 +17,16 @@ const getAllBooksFromDB = async (query: Record<string, unknown>) => {
     .search(BookSearchableFields)
     .filter()
     .sort()
-    .paginate();
+    .paginate()
+    .fields();
 
   const result = await bookQuery.modelQuery;
-  return result;
+  const meta = await bookQuery.countTotal();
+
+  return {
+    meta,
+    result,
+  };
 };
 
 const getSingleBookFromDB = async (id: string) => {

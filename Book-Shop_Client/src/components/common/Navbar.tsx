@@ -5,9 +5,13 @@ import { FaShopify } from "react-icons/fa";
 import { CgMenuGridO } from "react-icons/cg";
 import { navLinks } from "../../utils/routesGenerator";
 import ButtonSm from "./ButtonSm";
+import { useAppSelector } from "../../redux/hooks";
+import { selectCurrentUser } from "../../redux/features/auth/authSlice";
+import ProfileDropdown from "../Navbar/ProfileDropdown";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const user = useAppSelector(selectCurrentUser);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -39,13 +43,17 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="md:w-[25%] flex items-center justify-center md:justify-end gap-2 md:gap-4">
+        <div className="md:w-[25%] flex items-center justify-center md:justify-end gap-3 md:gap-4">
           <NavLink to={"/"}>
-            <FaShopify className="md:text-3xl" />
+            <FaShopify className="text-4xl" />
           </NavLink>
-          <NavLink to={`/login`}>
-            <ButtonSm text="Login"></ButtonSm>
-          </NavLink>
+          {user ? (
+            <ProfileDropdown />
+          ) : (
+            <NavLink to={`/login`}>
+              <ButtonSm variant="outline" text="Login" />
+            </NavLink>
+          )}
         </div>
 
         <button

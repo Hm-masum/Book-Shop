@@ -1,14 +1,14 @@
 import { TProduct } from "../../type/product.type";
 import image from "../../assets/cart3.jpg";
-import ButtonBig from "../common/ButtonBig";
 import { HiOutlineHeart } from "react-icons/hi";
 import "../../App.css";
 import { Link } from "react-router-dom";
+import ButtonSm from "../common/ButtonSm";
 
 const ProductCard = ({ product }: TProduct) => {
-  const { _id, title, author, price, inStock } = product;
+  const { _id, title, author, price, inStock, category } = product;
   return (
-    <div className="space-y-3 rounded-lg shadow-xl">
+    <div className="space-y-4 rounded-lg shadow-md hover:shadow-xl">
       <div className="relative">
         <img
           src={image}
@@ -32,14 +32,17 @@ const ProductCard = ({ product }: TProduct) => {
         </div>
       </div>
 
-      <div className="space-y-1 px-4 font-bold">
-        <h2 className="text-2xl font-title">{title}</h2>
+      <div className="px-4 font-semibold space-y-1">
+        <h2 className="text-2xl font-title font-bold">{title}</h2>
         <p className="text-gray-600 font-title">Author : {author}</p>
-        <p className="text-xl font-title">Price : {price} tk </p>
+        <div className=" flex items-center justify-between">
+          <p className="text-xl font-title">Price : {price} tk </p>
+          <p className="font-normal text-gray-500 font-title"> {category} </p>
+        </div>
       </div>
-      <div className="px-4 pb-7">
+      <div className="px-4 pb-5">
         <Link to={`/products/${_id}`}>
-          <ButtonBig text={"Details"} />
+          <ButtonSm variant="outline" size="lg" text={"View Details"} />
         </Link>
       </div>
     </div>
