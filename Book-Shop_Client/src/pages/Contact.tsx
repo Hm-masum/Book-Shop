@@ -1,5 +1,6 @@
 import Cover from "../components/common/Cover";
 import img1 from "../assets/cart1.jpg";
+import SendMessage from "../components/Contact/SendMessage";
 
 const Contact = () => {
   return (
@@ -8,7 +9,8 @@ const Contact = () => {
         title={"Contact us"}
         subTitle={"If you want to know. Contact us!"}
         img={img1}
-      ></Cover>
+      />
+      <SendMessage />
     </div>
   );
 };

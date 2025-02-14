@@ -6,6 +6,7 @@ type TVariants = {
 type TSizes = {
   sm: string;
   lg: string;
+  md: string;
 };
 
 export type TButton = {

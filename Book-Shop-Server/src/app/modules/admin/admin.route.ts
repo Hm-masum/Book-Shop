@@ -5,12 +5,8 @@ import { USER_ROLE } from '../user/user.constant';
 
 const router = express.Router();
 
-router.get('/users', auth(USER_ROLE.admin), AdminController.getAllUser);
+router.get('/users', AdminController.getAllUser);
 
-router.patch(
-  '/user/:userId/block',
-  auth(USER_ROLE.admin),
-  AdminController.blockUser,
-);
+router.patch('/user/:userId/block', AdminController.blockUser);
 
 export const AdminRoutes = router;

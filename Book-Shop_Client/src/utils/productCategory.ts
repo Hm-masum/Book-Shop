@@ -10,3 +10,15 @@ export const productCategory = [
   "Science",
   "Poetry",
 ];
+
+export const bookCategory = [
+  "Fiction",
+  "Novel",
+  "Biography",
+  "Mystery",
+  "Thrillers",
+  "History",
+  "Religious",
+  "Science",
+  "Poetry",
+];

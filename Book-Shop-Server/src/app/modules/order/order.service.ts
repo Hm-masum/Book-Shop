@@ -1,9 +1,40 @@
-import { TUser } from '../user/user.interface';
+import { JwtPayload } from 'jsonwebtoken';
+import { Book } from '../book/book.model';
+import { User } from '../user/user.model';
 import { IOrder } from './order.interface';
 import { Order } from './order.model';
 
-const createOrderIntoDB = async (user: TUser, payload: Partial<IOrder>) => {
-  console.log(user, payload);
+const createOrderIntoDB = async (
+  user: JwtPayload,
+  payload: Partial<IOrder>,
+) => {
+  const existUser = await User.findById(user?.id);
+
+  const products = payload.products;
+
+  let totalPrice = 0;
+  const productDetails = await Promise.all(
+    products.map(async (item) => {
+      const product = await Book.findById(item.product);
+      if (product) {
+        const subtotal = product ? (product.price || 0) * item.quantity : 0;
+        totalPrice += subtotal;
+        return item;
+      }
+    }),
+  );
+
+  let order = await Order.create({
+    user,
+    products: productDetails,
+    totalPrice,
+  });
+  // payment integration
+  const shurjopayPayload = {
+    amount: totalPrice,
+    order_id: order._id,
+    currency: 'BDT',
+  };
 };
 
 const getUserOrderFromDB = async (id: string) => {

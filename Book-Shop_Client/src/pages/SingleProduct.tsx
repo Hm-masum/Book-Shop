@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import img from "../assets/banner1.jpg";
 import { useGetSingleProductsQuery } from "../redux/features/product/products.api";
 import ButtonSm from "../components/common/ButtonSm";
 import Loader from "../components/common/Loader";
@@ -13,7 +12,11 @@ const SingleProduct = () => {
   return (
     <div className="flex flex-col md:flex-row items-center gap-8">
       <div className="w-full md:w-1/2 flex items-center justify-center">
-        <img className="w-full h-full bg-cover rounded-xl" src={img} alt="" />
+        <img
+          className="w-full h-[300px] md:h-[500px] bg-cover rounded-xl"
+          src={singleProduct?.data?.image}
+          alt=""
+        />
       </div>
       <div className="w-full md:w-1/2 flex flex-col space-y-2">
         <h2 className="text-4xl font-title font-bold">
@@ -55,7 +58,7 @@ const SingleProduct = () => {
           )}
         </div>
         <div className="flex items-center pt-4 gap-4">
-          <ButtonSm variant="outline" text={"add to cart"} size="sm"></ButtonSm>
+          {/* <ButtonSm variant="outline" text={"add to cart"} size="sm"></ButtonSm> */}
           <ButtonSm text={"Buy Now"}></ButtonSm>
         </div>
       </div>

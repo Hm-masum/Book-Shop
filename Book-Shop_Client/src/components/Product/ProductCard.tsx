@@ -1,12 +1,11 @@
 import { TProduct } from "../../type/product.type";
-import image from "../../assets/cart3.jpg";
 import { HiOutlineHeart } from "react-icons/hi";
 import "../../App.css";
 import { Link } from "react-router-dom";
 import ButtonSm from "../common/ButtonSm";
 
 const ProductCard = ({ product }: TProduct) => {
-  const { _id, title, author, price, inStock, category } = product;
+  const { _id, title, author, price, inStock, category, image } = product;
   return (
     <div className="space-y-4 rounded-lg shadow-md hover:shadow-xl">
       <div className="relative">
@@ -42,7 +41,7 @@ const ProductCard = ({ product }: TProduct) => {
       </div>
       <div className="px-4 pb-5">
         <Link to={`/products/${_id}`}>
-          <ButtonSm variant="outline" size="lg" text={"View Details"} />
+          <ButtonSm variant="outline" size="md" text={"View Details"} />
         </Link>
       </div>
     </div>

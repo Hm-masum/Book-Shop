@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import Swal from "sweetalert2";
@@ -40,16 +40,20 @@ const ProfileDropdown = () => {
         </p>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel className="text-xl p-2 text-center">
+        <DropdownMenuLabel className="text-xl p-1 text-center">
           {user?.email}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <ButtonSm size="lg" variant="outline" text={"My Profile"} />
+            <NavLink className="w-full" to={`/dashboard/my-profile`}>
+              <ButtonSm size="lg" variant="outline" text={"My Profile"} />
+            </NavLink>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <ButtonSm size="lg" variant="outline" text={"Dashboard"} />
+            <NavLink className="w-full" to={`/dashboard`}>
+              <ButtonSm size="lg" variant="outline" text={"Dashboard"} />
+            </NavLink>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <button onClick={handleLogout} className="w-full">

@@ -8,3 +8,9 @@ export type TRegister = {
   email: string;
   password: string;
 };
+
+export type TUser = {
+  email: string | undefined;
+  role: string | undefined;
+  id: string | undefined;
+};
