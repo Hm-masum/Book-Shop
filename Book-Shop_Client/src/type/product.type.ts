@@ -24,3 +24,13 @@ export type TBook = {
 };
 
 export type TProduct = { key: string; product: TBook };
+
+export type TProductSlice = {
+  _id: string;
+  title: string;
+  author: string;
+  price: number;
+  quantity: number;
+  stock: number;
+  image: string;
+};

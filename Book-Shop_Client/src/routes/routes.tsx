@@ -19,6 +19,8 @@ import ChangePassword from "../pages/Dashboard/ChangePassword";
 import UpdateProduct from "../pages/Dashboard/UpdateProduct";
 import MyOrder from "../pages/Dashboard/MyOrder";
 import UpdateProfile from "../pages/Dashboard/UpdateProfile";
+import Cart from "../pages/Cart";
+import PlaceOrder from "../pages/PlaceOrder";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
       {
         path: "/contact-us",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+      {
+        path: "/place-order",
+        element: <PlaceOrder />,
       },
     ],
   },

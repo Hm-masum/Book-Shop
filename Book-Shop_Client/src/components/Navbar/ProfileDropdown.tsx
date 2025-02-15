@@ -36,7 +36,7 @@ const ProfileDropdown = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <p>
-          <CgProfile className="text-4xl" />
+          <CgProfile className="text-3xl" />
         </p>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
@@ -47,17 +47,17 @@ const ProfileDropdown = () => {
         <DropdownMenuGroup>
           <DropdownMenuItem>
             <NavLink className="w-full" to={`/dashboard/my-profile`}>
-              <ButtonSm size="lg" variant="outline" text={"My Profile"} />
+              <ButtonSm size="md" variant="outline" text={"My Profile"} />
             </NavLink>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <NavLink className="w-full" to={`/dashboard`}>
-              <ButtonSm size="lg" variant="outline" text={"Dashboard"} />
+              <ButtonSm size="md" variant="outline" text={"Dashboard"} />
             </NavLink>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <button onClick={handleLogout} className="w-full">
-              <ButtonSm size="lg" variant="outline" text={"Logout"} />
+              <ButtonSm size="md" variant="outline" text={"Logout"} />
             </button>
           </DropdownMenuItem>
         </DropdownMenuGroup>

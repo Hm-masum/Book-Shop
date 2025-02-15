@@ -1,11 +1,46 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetSingleProductsQuery } from "../redux/features/product/products.api";
 import ButtonSm from "../components/common/ButtonSm";
 import Loader from "../components/common/Loader";
+import { useAppDispatch } from "../redux/hooks";
+import { addToCart } from "../redux/features/product/productSlice";
+import Swal from "sweetalert2";
 
 const SingleProduct = () => {
+  const dispatch = useAppDispatch();
   const { id } = useParams();
   const { data: singleProduct, isLoading } = useGetSingleProductsQuery(id);
+
+  const handleAddToCard = () => {
+    const productData = {
+      _id: singleProduct.data._id,
+      title: singleProduct.data.title,
+      author: singleProduct.data.author,
+      price: singleProduct.data.price,
+      quantity: 1,
+      stock: singleProduct.data.quantity,
+      image: singleProduct.data.image as string,
+    };
+
+    if (singleProduct.data.quantity > 0) {
+      dispatch(addToCart(productData));
+      Swal.fire({
+        title: "Success!",
+        text: "Product added card!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } else {
+      Swal.fire({
+        title: "Sorry?",
+        text: "Product is out of stock!",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
 
   if (isLoading) return <Loader />;
 
@@ -58,8 +93,12 @@ const SingleProduct = () => {
           )}
         </div>
         <div className="flex items-center pt-4 gap-4">
-          {/* <ButtonSm variant="outline" text={"add to cart"} size="sm"></ButtonSm> */}
-          <ButtonSm text={"Buy Now"}></ButtonSm>
+          <p onClick={handleAddToCard}>
+            <ButtonSm variant="outline" text={"add to cart"} size="sm" />
+          </p>
+          <Link onClick={handleAddToCard} to={`/cart`}>
+            <ButtonSm text={"Buy Now"} />
+          </Link>
         </div>
       </div>
     </div>

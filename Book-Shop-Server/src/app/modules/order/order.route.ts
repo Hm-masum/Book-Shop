@@ -4,6 +4,7 @@ import { OrderController } from './order.controller';
 const router = express.Router();
 
 router.post('/create-order', OrderController.createOrder);
+router.patch('/verify', OrderController.verifyPayment);
 
 router.get('/all-order', OrderController.getAllOrder);
 router.get('/user-order', OrderController.getAllOrder);

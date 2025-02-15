@@ -44,8 +44,8 @@ const Navbar = () => {
         </ul>
 
         <div className="md:w-[25%] flex items-center justify-center md:justify-end gap-3 md:gap-4">
-          <NavLink to={"/"}>
-            <FaShopify className="text-4xl" />
+          <NavLink to={"/cart"}>
+            <FaShopify className="text-3xl" />
           </NavLink>
           {user ? (
             <ProfileDropdown />
