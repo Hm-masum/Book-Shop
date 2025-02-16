@@ -24,12 +24,11 @@ const orderApi = baseApi.injectEndpoints({
       }),
       providesTags: ["order"],
     }),
-    verifyOrder: builder.mutation({
+    verifyOrder: builder.query({
       query: (id) => ({
         url: `/orders/verify?order_id=${id}`,
-        method: "PATCH",
+        method: "GET",
       }),
-      invalidatesTags: ["order"],
     }),
   }),
 });
@@ -38,5 +37,5 @@ export const {
   useCreateOrderMutation,
   useAllOrdersQuery,
   useMyOrdersQuery,
-  useVerifyOrderMutation,
+  useVerifyOrderQuery,
 } = orderApi;

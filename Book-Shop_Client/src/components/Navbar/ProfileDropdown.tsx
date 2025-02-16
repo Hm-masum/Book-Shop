@@ -1,5 +1,4 @@
 import { CgProfile } from "react-icons/cg";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -51,9 +50,15 @@ const ProfileDropdown = () => {
             </NavLink>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <NavLink className="w-full" to={`/dashboard`}>
-              <ButtonSm size="md" variant="outline" text={"Dashboard"} />
-            </NavLink>
+            {user?.role === "admin" ? (
+              <NavLink className="w-full" to={`/dashboard/all-order`}>
+                <ButtonSm size="md" variant="outline" text={"All Order"} />
+              </NavLink>
+            ) : (
+              <NavLink className="w-full" to={`/dashboard/my-order`}>
+                <ButtonSm size="md" variant="outline" text={"My Order"} />
+              </NavLink>
+            )}
           </DropdownMenuItem>
           <DropdownMenuItem>
             <button onClick={handleLogout} className="w-full">

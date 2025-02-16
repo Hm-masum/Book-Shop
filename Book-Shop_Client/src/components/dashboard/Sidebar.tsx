@@ -8,14 +8,14 @@ import { FaUsers } from "react-icons/fa6";
 import { FaUserCheck, FaBorderNone } from "react-icons/fa";
 import SidebarRoute from "./SidebarRoute";
 import { BsBookHalf, BsBook } from "react-icons/bs";
-import { IoIosStats } from "react-icons/io";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { useAppDispatch } from "../../redux/hooks";
-import { logout } from "../../redux/features/auth/authSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { logout, selectCurrentUser } from "../../redux/features/auth/authSlice";
 import Swal from "sweetalert2";
 
 const Sidebar = () => {
+  const user = useAppSelector(selectCurrentUser);
   const [isActive, setActive] = useState(false);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -64,7 +64,7 @@ const Sidebar = () => {
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
         <div>
-          <div className="w-full hidden md:flex px-4 py-1 shadow-lg rounded-lg justify-center items-center bg-[#0003604b] mx-auto">
+          <div className="w-full hidden md:flex px-4 py-1 border border-gray-300  rounded-md justify-center items-center bg-[#00306019] mx-auto">
             <Link to="/" className="flex items-center justify-center gap-2">
               <img src={logo} width="40" height="40" alt="" />
               <h2 className="text-2xl font-semibold">
@@ -76,35 +76,37 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
-              <SidebarRoute
-                path={"manage-products"}
-                text={"Manage Products"}
-                icons={<BsBookHalf className="w-5 h-5" />}
-              />
+              {user?.role === "admin" && (
+                <SidebarRoute
+                  path={"manage-products"}
+                  text={"Manage Products"}
+                  icons={<BsBookHalf className="w-5 h-5" />}
+                />
+              )}
 
-              <SidebarRoute
-                path={"add-product"}
-                text={"Add Product"}
-                icons={<BsBook className="w-5 h-5" />}
-              />
+              {user?.role === "admin" && (
+                <SidebarRoute
+                  path={"add-product"}
+                  text={"Add Product"}
+                  icons={<BsBook className="w-5 h-5" />}
+                />
+              )}
 
-              <SidebarRoute
-                path={"all-order"}
-                text={"All Order"}
-                icons={<FaBorderNone className="w-5 h-5" />}
-              />
+              {user?.role === "admin" && (
+                <SidebarRoute
+                  path={"all-order"}
+                  text={"All Order"}
+                  icons={<FaBorderNone className="w-5 h-5" />}
+                />
+              )}
 
-              <SidebarRoute
-                path={"all-user"}
-                text={"All User"}
-                icons={<FaUsers className="w-5 h-5" />}
-              />
-
-              <SidebarRoute
-                path={"statistics"}
-                text={"Statistics"}
-                icons={<IoIosStats className="w-5 h-5" />}
-              />
+              {user?.role === "admin" && (
+                <SidebarRoute
+                  path={"all-user"}
+                  text={"All User"}
+                  icons={<FaUsers className="w-5 h-5" />}
+                />
+              )}
 
               <SidebarRoute
                 path={"my-order"}

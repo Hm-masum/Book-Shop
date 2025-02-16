@@ -48,7 +48,7 @@ const SingleProduct = () => {
     <div className="flex flex-col md:flex-row items-center gap-8">
       <div className="w-full md:w-1/2 flex items-center justify-center">
         <img
-          className="w-full h-[300px] md:h-[500px] bg-cover rounded-xl"
+          className="w-full h-[300px] md:h-[550px] bg-cover rounded-xl"
           src={singleProduct?.data?.image}
           alt=""
         />

@@ -41,8 +41,6 @@ class QueryBuilder<T> {
 
     const priceFilter: Record<string, any> = {};
 
-    console.log(this.query.priceRange);
-
     if (this.query.priceRange === '100') {
       priceFilter['price'] = { $gte: 0, $lte: 100 };
     } else if (this.query.priceRange === '200') {

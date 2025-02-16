@@ -21,7 +21,16 @@ const blockUserIntoDB = async (id: string) => {
   return result;
 };
 
+const getSingleUserFromDB = async (id: string) => {
+  const result = await User.findById(id);
+  if (!result) {
+    throw new AppError(httpStatus.NOT_FOUND, 'User is not found');
+  }
+  return result;
+};
+
 export const AdminService = {
   getAllUserFromDB,
   blockUserIntoDB,
+  getSingleUserFromDB,
 };

@@ -1,13 +1,11 @@
 import { Types } from 'mongoose';
 
-export interface IProducts {
-  product: Types.ObjectId;
-  quantity: number;
-}
-
 export interface IOrder {
   user: Types.ObjectId;
-  products: [IProducts];
+  products: {
+    product: Types.ObjectId;
+    quantity: number;
+  }[];
   totalPrice: number;
   status: 'Pending' | 'Paid' | 'Shipped' | 'Completed' | 'Cancelled';
   transaction: {
@@ -22,3 +20,8 @@ export interface IOrder {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export type TProducts = {
+  product: Types.ObjectId;
+  quantity: number;
+}[];

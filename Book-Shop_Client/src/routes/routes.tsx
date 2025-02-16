@@ -21,12 +21,16 @@ import MyOrder from "../pages/Dashboard/MyOrder";
 import UpdateProfile from "../pages/Dashboard/UpdateProfile";
 import Cart from "../pages/Cart";
 import PlaceOrder from "../pages/PlaceOrder";
+import VerifyOrder from "../pages/VerifyOrder";
+import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoutes from "./AdminRoutes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -58,57 +62,117 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/place-order",
-        element: <PlaceOrder />,
+        element: (
+          <PrivateRoute>
+            <PlaceOrder />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/order-verify",
+        element: (
+          <PrivateRoute>
+            <VerifyOrder />
+          </PrivateRoute>
+        ),
       },
     ],
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "manage-products",
-        element: <ManageProduct />,
+        element: (
+          <AdminRoutes>
+            <ManageProduct />
+          </AdminRoutes>
+        ),
       },
       {
         path: "update-product/:id",
-        element: <UpdateProduct />,
+        element: (
+          <AdminRoutes>
+            <UpdateProduct />
+          </AdminRoutes>
+        ),
       },
       {
         path: "add-product",
-        element: <AddProduct />,
+        element: (
+          <AdminRoutes>
+            <AddProduct />
+          </AdminRoutes>
+        ),
       },
       {
         path: "all-order",
-        element: <AllOrder />,
+        element: (
+          <AdminRoutes>
+            <AllOrder />
+          </AdminRoutes>
+        ),
       },
       {
         path: "all-user",
-        element: <AllUser />,
+        element: (
+          <AdminRoutes>
+            <AllUser />
+          </AdminRoutes>
+        ),
       },
       {
         path: "statistics",
-        element: <Statistics />,
+        element: (
+          <PrivateRoute>
+            <Statistics />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-order",
-        element: <MyOrder />,
+        element: (
+          <PrivateRoute>
+            <MyOrder />
+          </PrivateRoute>
+        ),
       },
       {
         path: "change-password",
-        element: <ChangePassword />,
+        element: (
+          <PrivateRoute>
+            <ChangePassword />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-profile",
-        element: <MyProfile />,
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "update-profile",
-        element: <UpdateProfile />,
+        element: (
+          <PrivateRoute>
+            <UpdateProfile />
+          </PrivateRoute>
+        ),
       },
     ],
   },

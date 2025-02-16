@@ -15,7 +15,6 @@ const Cart = () => {
   );
 
   const handleIncrement = (product: TProductSlice) => {
-    console.log(product);
     const productData = {
       _id: product._id,
       quantity: Math.min(product.quantity + 1, product.stock),

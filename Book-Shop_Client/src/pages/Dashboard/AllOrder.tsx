@@ -5,6 +5,7 @@ import { useAllOrdersQuery } from "../../redux/features/order/order.api";
 
 const AllOrder = () => {
   const { data: allOrders, isLoading } = useAllOrdersQuery(undefined);
+
   if (isLoading) return <Loader />;
 
   return (
@@ -20,18 +21,23 @@ const AllOrder = () => {
                 <TableHead text={"Customer Name"} />
                 <TableHead text={"Price"} />
                 <TableHead text={"Email"} />
-                <TableHead text={"Total"} />
+                <TableHead text={"Method"} />
+                <TableHead text={"Status"} />
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <TableData text={"1"} />
-                <TableData text={"1"} />
-                <TableData text={"1"} />
-                <TableData text={"1"} />
-                <TableData text={"1"} />
-                <TableData text={"1"} />
-              </tr>
+              {allOrders?.data?.map((item: any, index: number) => (
+                <tr key={index}>
+                  <TableData text={index + 1} />
+                  <TableData text={item?.transaction?.date_time} />
+                  <TableData text={item?.transaction?.id} />
+                  <TableData text={item?.user?.name} />
+                  <TableData text={item?.totalPrice} />
+                  <TableData text={item?.user?.email} />
+                  <TableData text={item?.transaction?.method} />
+                  <TableData text={item?.transaction?.bank_status} />
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

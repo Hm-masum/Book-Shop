@@ -1,27 +1,27 @@
 import { JwtPayload } from 'jsonwebtoken';
 import { Book } from '../book/book.model';
 import { User } from '../user/user.model';
-import { IOrder } from './order.interface';
 import { Order } from './order.model';
 import { orderUtils } from './order.utils';
 import AppError from '../../errors/AppError';
 import httpStatus from 'http-status';
+import { TProducts } from './order.interface';
 
 const createOrderIntoDB = async (
   user: JwtPayload,
-  payload: Partial<IOrder>,
+  payload: { products: { _id: string; quantity: number }[] },
   client_ip: string,
 ) => {
   if (!payload?.products?.length) {
     throw new AppError(httpStatus.NOT_ACCEPTABLE, 'Order is not specified');
   }
-
+  const existUser = await User.findById(user?.id);
   const products = payload.products;
 
   let totalPrice = 0;
   const productDetails = await Promise.all(
     products.map(async (item) => {
-      const product = await Book.findById(item.product);
+      const product = await Book.findById(item._id);
       if (product) {
         const subtotal = product ? (product.price || 0) * item.quantity : 0;
         totalPrice += subtotal;
@@ -30,13 +30,20 @@ const createOrderIntoDB = async (
     }),
   );
 
-  let order = await Order.create({
-    user,
-    products: productDetails,
-    totalPrice,
+  const transformedProducts: any[] = [];
+  productDetails.forEach((product) => {
+    transformedProducts.push({
+      product: product?._id,
+      quantity: product?.quantity,
+    });
   });
 
-  const existUser = await User.findById(user?.id);
+  const orderData = {
+    user: user?.id,
+    products: transformedProducts,
+    totalPrice,
+  };
+  let order = await Order.create(orderData);
 
   // payment integration
   const shurjopayPayload = {
@@ -46,7 +53,7 @@ const createOrderIntoDB = async (
     customer_name: existUser?.name,
     customer_address: existUser?.address,
     customer_email: existUser?.email,
-    customer_phone: existUser?.phone,
+    customer_phone: String(existUser?.phone),
     customer_city: existUser?.address,
     client_ip,
   };
@@ -67,6 +74,28 @@ const createOrderIntoDB = async (
 
 const verifyPayment = async (order_id: string) => {
   const verifiedPayment = await orderUtils.verifyPaymentAsync(order_id);
+
+  // update product quantity
+  if (verifiedPayment[0].customer_order_id) {
+    const existOrder = await Order.findById(
+      verifiedPayment[0]?.customer_order_id,
+    );
+
+    const products = existOrder?.products as TProducts;
+
+    for (let i = 0; i < products?.length; i++) {
+      const product = await Book.findById(products[i].product);
+
+      if (product) {
+        product.quantity -= products[i].quantity;
+
+        if (product.quantity == 0) {
+          product.inStock = false;
+        }
+      }
+      await product?.save();
+    }
+  }
 
   if (verifiedPayment.length) {
     await Order.findOneAndUpdate(
@@ -95,12 +124,12 @@ const verifyPayment = async (order_id: string) => {
 };
 
 const getUserOrderFromDB = async (id: string) => {
-  const result = await Order.find({ user: id });
+  const result = await Order.find({ user: id }).populate('user');
   return result;
 };
 
 const getAllOrderFromDB = async () => {
-  const result = await Order.find();
+  const result = await Order.find().populate('user');
   return result;
 };
 

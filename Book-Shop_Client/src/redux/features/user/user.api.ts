@@ -31,6 +31,12 @@ const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+    getSingleUser: builder.query({
+      query: (id) => ({
+        url: `/admin/user/${id}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
@@ -39,4 +45,5 @@ export const {
   useBlockUserMutation,
   useGetMyProfileQuery,
   useUpdateProfileMutation,
+  useGetSingleUserQuery,
 } = userApi;

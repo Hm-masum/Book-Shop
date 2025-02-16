@@ -13,6 +13,7 @@ import { productCategory } from "../utils/productCategory";
 import { Input } from "../components/ui/input";
 import { TParamsReq } from "../type/global.type";
 import Loader from "../components/common/Loader";
+import useAuthor from "../hook/useAuthor";
 
 const Products = () => {
   const [searchText, setSearchText] = useState("");
@@ -23,6 +24,7 @@ const Products = () => {
   const [authorFilter, setAuthorFilter] = useState<string | undefined>();
 
   const { data: products, isLoading } = useGetAllProductsQuery(params);
+  const [authors, isFetching] = useAuthor();
 
   useEffect(() => {
     const newParams: TParamsReq[] = [];
@@ -49,12 +51,8 @@ const Products = () => {
     setParams(newParams);
   }, [categoryFilter, authorFilter, priceFilter, stockFilter, searchText]);
 
-  const authors = products?.data?.result?.map((product: TBook) => ({
-    author: product.author,
-    id: product._id,
-  }));
-
   if (isLoading) return <Loader />;
+  if (isFetching) return <Loader />;
 
   return (
     <div>

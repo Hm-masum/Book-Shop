@@ -7,13 +7,9 @@ import ButtonSm from "../common/ButtonSm";
 const ProductCard = ({ product }: TProduct) => {
   const { _id, title, author, price, inStock, category, image } = product;
   return (
-    <div className="space-y-4 rounded-lg shadow-md hover:shadow-xl">
+    <div className="space-y-4 rounded-lg shadow-md hover:shadow-lg">
       <div className="relative">
-        <img
-          src={image}
-          className="rounded-lg h-[350px] md:h-[250px] w-full"
-          alt=""
-        />
+        <img src={image} className="mx-auto h-[350px] md:h-[250px]" alt="" />
         <div className="rounded-full p-2 absolute hover:bg-slate-200 bg-white top-3 right-2 primary-color flex items-center justify-center">
           <HiOutlineHeart className="text-3xl font-semibold text-red-500" />
         </div>

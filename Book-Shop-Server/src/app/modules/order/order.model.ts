@@ -1,15 +1,15 @@
 import { model, Schema } from 'mongoose';
-import { IOrder, IProducts } from './order.interface';
-
-const productSchema = new Schema<IProducts>({
-  product: { type: Schema.Types.ObjectId, ref: 'Book', required: true },
-  quantity: { type: Number, required: true },
-});
+import { IOrder } from './order.interface';
 
 const bookSchema = new Schema<IOrder>(
   {
     user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    products: [productSchema],
+    products: [
+      {
+        product: { type: Schema.Types.ObjectId, ref: 'Book', required: true },
+        quantity: { type: Number, required: true },
+      },
+    ],
     totalPrice: { type: Number, required: true },
     status: {
       type: String,
