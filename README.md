@@ -52,7 +52,7 @@ The InkSpire is a full-stack e-commerce platform that allows users to browse, pu
    ```
 
 ### Environment Variables
-Create a `.env` file in the root directory of Book-Shop-Server folder and add the following:
+Create a  `.env` file in the root directory of Book-Shop-Server folder and add the following:
 ```
 PORT=5000
 DATABASE_URL= your database url
@@ -69,6 +69,7 @@ SP_PREFIX=SP
 SP_RETURN_URL= https://ink-spire21.vercel.app/order-verify
 
 ```
+---
 
 ## Technologies Used
 
