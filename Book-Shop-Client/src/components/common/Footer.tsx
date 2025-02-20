@@ -10,7 +10,7 @@ const Footer = () => {
         <h2 className="text-3xl font-bold">
           Ink<span className="text-[#003060]">Spire</span>
         </h2>
-        <p className="text-sm text-center w-[50%]">
+        <p className="text-sm text-center wd-[70%] md:w-[50%]">
           Thank you for choosing InkSpire, where every page turns into a new
           adventure! Whether you're looking for timeless classics, the latest
           bestsellers, or hidden literary gems, we are here to inspire your
