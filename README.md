@@ -70,6 +70,12 @@ SP_RETURN_URL= https://ink-spire21.vercel.app/order-verify
 
 ```
 ---
+## Admin Credentials
+```
+Admin gmail: hhmasum88@gmail.com
+Admin password: securepassword
+```
+---
 
 ## Technologies Used
 
