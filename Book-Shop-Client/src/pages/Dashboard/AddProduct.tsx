@@ -66,11 +66,11 @@ const AddProduct = () => {
   };
 
   return (
-    <div>
+    <div className="bg-white min-h-screen rounded-lg shadow-md px-5 py-3">
       <SectionTitle heading="Add Books" subHeading="What you provides" />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="-mt-3">
-        <div className="space-y-3">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="space-y-4">
           <div className="flex flex-col md:flex-row gap-3">
             <div className="w-full">
               <label className="block mb text-sm">Book Name</label>
@@ -242,7 +242,9 @@ const AddProduct = () => {
             </div>
           </div>
 
-          <ButtonSm variant="filled" text="Add Product"></ButtonSm>
+          <div>
+            <ButtonSm variant="filled" text="Add Product"></ButtonSm>
+          </div>
         </div>
       </form>
     </div>

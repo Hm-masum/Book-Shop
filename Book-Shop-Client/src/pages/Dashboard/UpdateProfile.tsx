@@ -64,10 +64,12 @@ const UpdateProfile = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="flex justify-center items-center h-[90vh] md:h-[100vh]">
-      <div className="bg-white shadow-lg p-14 rounded-2xl w-full md:w-4/5 lg:w-3/6">
-        <h2 className="text-xl text-center font-title my-2">Update Profile</h2>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-1 w-full">
+    <div className="min-h-screen flex justify-center items-center">
+      <div className="bg-white shadow-md p-14 rounded-2xl w-full md:w-4/5 lg:w-3/6">
+        <h2 className="text-2xl font-semibold text-center font-title my-2">
+          Update Profile
+        </h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 w-full">
           <div className="w-full">
             <label className="block mb text-sm">Name</label>
             <div className="mt-1">
@@ -152,7 +154,9 @@ const UpdateProfile = () => {
             </div>
           </div>
 
-          <ButtonSm size="md" variant="filled" text="Update Profile" />
+          <div>
+            <ButtonSm size="md" variant="filled" text="Update Profile" />
+          </div>
         </form>
       </div>
     </div>

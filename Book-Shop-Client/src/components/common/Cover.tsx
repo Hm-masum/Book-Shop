@@ -7,6 +7,7 @@ const Cover = ({ title, subTitle, img }: any) => {
       bgImage={img}
       bgImageAlt="the menu"
       strength={-200}
+      className="rounded-lg"
     >
       <div className="h-[30vh] md:h-[50vh] bg-gray-900/70 text-white text-center flex flex-col items-center justify-center space-y-3">
         <h1 className="text-center text-3xl md:text-4xl uppercase font-bold">

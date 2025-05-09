@@ -39,12 +39,12 @@ const Sidebar = () => {
   return (
     <>
       {/* Small Screen Navbar */}
-      <div className="bg-gray-100 text-gray-800 flex justify-between md:hidden">
+      <div className="bg-slate-200 text-gray-800 flex justify-between md:hidden">
         <div className="block cursor-pointer p-3 font-bold">
           <Link to="/" className="flex justify-center items-center gap-3">
             <img src={logo} width="40" height="40" alt="" />
             <h2 className="text-xl">
-              Ins <span className="text-[#003060]">Spire</span>
+              Ins <span className="text-blue-700">Spire</span>
             </h2>
           </Link>
         </div>
@@ -59,7 +59,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+        className={`z-10 md:fixed flex flex-col justify-between overflow-x-hidden bg-slate-200 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
           isActive && "-translate-x-full"
         }  md:translate-x-0  transition duration-200 ease-in-out`}
       >
@@ -68,7 +68,7 @@ const Sidebar = () => {
             <Link to="/" className="flex items-center justify-center gap-2">
               <img src={logo} width="40" height="40" alt="" />
               <h2 className="text-2xl font-semibold">
-                Ins<span className="text-[#003060]">Spire</span>
+                Ins<span className="text-blue-700">Spire</span>
               </h2>
             </Link>
           </div>

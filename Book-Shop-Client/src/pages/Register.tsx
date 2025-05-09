@@ -76,12 +76,12 @@ const Register = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center px-3 md:px-12">
+    <div className="flex flex-col md:flex-row items-center justify-center px-3 md:px-12 my-8">
       <div className="md:w-1/2 flex items-center justify-center">
         <img className="w-[600px] md:h-[600px]" src={imgBg} alt="" />
       </div>
 
-      <div className="w-full md:w-1/2 p-5 md:p-8 lg:px-10 lg:py-14 shadow-md space-y-4 border border-[#003060] rounded-lg">
+      <div className="w-full md:w-1/2 p-5 md:p-8 lg:px-10 lg:py-14 shadow-md space-y-4 bg-white rounded-lg">
         <div className="flex items-center justify-center">
           <img className="w-[50px]" src={logo} alt="" />
           <h2 className="font-semibold md:text-3xl">
@@ -157,9 +157,9 @@ const Register = () => {
 
         <div>
           <p className="text-lg text-center">
-            Do not have an account yet?{" "}
+            If you have an account?{" "}
             <Link className="font-semibold primary-color" to={"/login"}>
-              Register
+              Login
             </Link>
           </p>
         </div>

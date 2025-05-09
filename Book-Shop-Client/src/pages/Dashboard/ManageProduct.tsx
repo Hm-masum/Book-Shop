@@ -51,7 +51,7 @@ const ManageProduct = () => {
         <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
           <table className="min-w-full leading-normal">
             <thead>
-              <tr className="bg-[#003060cb]">
+              <tr className="bg-blue-900">
                 <TableHead text={"#"} />
                 <TableHead text={"Title"} />
                 <TableHead text={"Author"} />

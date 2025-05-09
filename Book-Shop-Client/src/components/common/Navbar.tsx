@@ -19,8 +19,8 @@ const Navbar = () => {
   const { totalQuantity } = useAppSelector((state) => state.product);
 
   return (
-    <header className="px-3 py-2 backdrop-blur-2xl bg-white/55 sticky top-0 z-10">
-      <div className="flex items-center justify-between">
+    <header className="px-1 py-2 backdrop-blur-3xl bg-white/75 sticky top-0 z-10">
+      <div className="md:max-w-7xl mx-auto flex items-center justify-between">
         <a href="#" className="flex items-center w-[25%]">
           <img className="w-[35%] md:w-[20%] lg:w-[15%]" src={logo} alt="" />
           <h2 className="font-semibold md:text-2xl">

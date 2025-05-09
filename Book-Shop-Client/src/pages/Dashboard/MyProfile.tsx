@@ -18,8 +18,8 @@ const MyProfile = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center h-[70vh] md:h-[80vh]">
-        <div className="bg-white shadow-lg rounded-2xl w-full md:w-4/5 lg:w-3/5">
+      <div className="min-h-screen flex justify-center items-center">
+        <div className="bg-white shadow-md rounded-2xl w-full md:w-4/5 lg:w-3/5">
           <img
             alt="profile"
             src={bg}
@@ -34,7 +34,7 @@ const MyProfile = () => {
               />
             </a>
 
-            <p className="py-2 uppercase font-title font-medium px-4 text-xs text-white bg-[#003060] rounded-full">
+            <p className="py-2 uppercase font-title font-medium px-4 text-xs text-white bg-blue-700 rounded-full">
               {userData?.data?.role}
             </p>
 
@@ -56,7 +56,7 @@ const MyProfile = () => {
                   <span className="font-semibold">Address : </span>
                   {userData?.data?.address || "N/A"}
                 </p>
-                <button className="py-2 uppercase px-4 text-xs text-white bg-[#003060] rounded-full font-title font-medium">
+                <button className="py-2 uppercase px-4 text-xs text-white bg-blue-700 rounded-full font-title font-medium">
                   <Link to={`/dashboard/update-profile`}> Update</Link>
                 </button>
               </div>

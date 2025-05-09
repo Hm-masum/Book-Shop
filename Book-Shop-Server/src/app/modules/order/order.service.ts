@@ -148,10 +148,15 @@ const calculateRevenueFromDB = async () => {
   return result;
 };
 
+const deleteOrderFromDB = async (id: string) => {
+  const result = await Order.findByIdAndDelete(id);
+};
+
 export const OrderServices = {
   createOrderIntoDB,
   calculateRevenueFromDB,
   getAllOrderFromDB,
   getUserOrderFromDB,
   verifyPayment,
+  deleteOrderFromDB,
 };

@@ -34,11 +34,12 @@ const ChangePassword = () => {
       toast.error(err.message);
     }
   };
-
   return (
-    <div className="flex justify-center items-center h-[90vh] md:h-[100vh]">
-      <div className="bg-white shadow-lg p-14 rounded-2xl w-full md:w-4/5 lg:w-3/6">
-        <h2 className="text-xl text-center font-title my-2">Update Password</h2>
+    <div className="min-h-screen flex justify-center items-center ">
+      <div className="bg-white shadow-md p-14 rounded-xl w-full md:w-4/5 lg:w-3/6">
+        <h2 className="text-2xl font-semibold text-center font-title my-2">
+          Update Password
+        </h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 w-full">
           <div className="w-full">
             <label className="block mb text-sm">Old Password</label>

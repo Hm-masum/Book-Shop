@@ -17,8 +17,8 @@ const ChooseCard = ({ title, text, img, variant }: TCard) => {
   const baseStyles = "p-8 w-full rounded-lg space-y-1";
 
   const variants = {
-    pink: "bg-pink-50",
-    blue: "bg-blue-50",
+    pink: "bg-pink-100",
+    blue: "bg-blue-100",
   };
 
   const classes = twMerge(clsx(baseStyles, variants[variant]));

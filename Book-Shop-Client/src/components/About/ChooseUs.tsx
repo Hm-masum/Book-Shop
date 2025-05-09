@@ -6,7 +6,7 @@ import img3 from "../../assets/delivary.png";
 
 const ChooseUs = () => {
   return (
-    <div>
+    <div className="py-10">
       <SectionTitle
         subHeading="for their reading needs!"
         heading="Why Choose Us"

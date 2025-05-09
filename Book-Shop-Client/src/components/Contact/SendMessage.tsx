@@ -23,18 +23,14 @@ const SendMessage = () => {
   };
 
   return (
-    <div className="pt-5">
+    <div className="py-12">
       <SectionTitle subHeading="how we can help!" heading="Message Us" />
-      <div className="flex flex-col md:flex-row items-center justify-center">
+      <div className="flex flex-col md:flex-row items-center justify-center bg-white md:rounded-xl">
         <div className="w-full md:w-1/2 flex items-center justify-center">
-          <img
-            className="w-full md:rounded-l-xl h-[280px] md:h-[500px]"
-            src={imgBg}
-            alt=""
-          />
+          <img className="w-full h-[280px] md:h-[500px]" src={imgBg} alt="" />
         </div>
 
-        <div className="w-full md:w-1/2 p-5  md:h-[500px] md:p-8 lg:px-10 lg:py-10  space-y-3 border border-[#0030605a]  md:rounded-r-xl">
+        <div className="w-full md:w-1/2 p-5  md:h-[500px] md:p-8 lg:px-10 lg:py-10  space-y-3">
           <div className="flex items-center justify-center">
             <img className="w-[50px]" src={logo} alt="" />
             <h2 className="font-semibold md:text-3xl">

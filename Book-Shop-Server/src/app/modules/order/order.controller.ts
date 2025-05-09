@@ -63,10 +63,23 @@ const calculateRevenue = catchAsync(async (req, res) => {
   });
 });
 
+const deleteOrder = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await OrderServices.deleteOrderFromDB(id);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Order deleted successfully',
+    data: result,
+  });
+});
+
 export const OrderController = {
   calculateRevenue,
   getAllOrder,
   getUserOrder,
   createOrder,
   verifyPayment,
+  deleteOrder,
 };

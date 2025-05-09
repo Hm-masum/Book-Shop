@@ -76,11 +76,11 @@ const UpdateProduct = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div>
+    <div className="bg-white min-h-screen rounded-lg shadow-md px-5 py-3">
       <SectionTitle heading="Update Books" subHeading="What you updates" />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="-mt-3">
-        <div className="space-y-3">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="space-y-4">
           <div className="flex flex-col md:flex-row gap-3">
             <div className="w-full">
               <label className="block mb text-sm">Book Name</label>

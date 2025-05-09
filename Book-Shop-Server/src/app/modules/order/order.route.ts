@@ -17,10 +17,17 @@ router.get(
 );
 
 router.get('/all-order', OrderController.getAllOrder);
+
 router.get(
   '/user-order',
   auth(USER_ROLE.admin, USER_ROLE.user),
   OrderController.getUserOrder,
+);
+
+router.delete(
+  '/:id',
+  auth(USER_ROLE.admin, USER_ROLE.user),
+  OrderController.deleteOrder,
 );
 
 router.patch('/revenue', OrderController.calculateRevenue);

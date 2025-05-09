@@ -14,7 +14,7 @@ const SliderImg = ({ image, text }: any) => {
           <br />
           <Link
             to={"/products"}
-            className="text-center border border-purple-500 px-5 py-3 mt-4 rounded-md"
+            className="text-center border border-blue-600 px-5 py-3 mt-4 rounded-md"
           >
             Explore
           </Link>

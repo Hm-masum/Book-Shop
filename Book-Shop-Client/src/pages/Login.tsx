@@ -71,7 +71,7 @@ const Login = () => {
         <img className="w-[600px] md:h-[600px]" src={imgBg} alt="" />
       </div>
 
-      <div className="w-full md:w-1/2 p-5 md:p-8 lg:px-10 lg:py-14 shadow-md space-y-4 border border-[#003060] rounded-lg">
+      <div className="w-full md:w-1/2 p-5 md:p-8 lg:px-10 lg:py-14 shadow-md space-y-4 bg-white rounded-lg">
         <div className="flex items-center justify-center">
           <img className="w-[50px]" src={logo} alt="" />
           <h2 className="font-semibold md:text-3xl">

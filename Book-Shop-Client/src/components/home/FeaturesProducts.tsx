@@ -22,7 +22,7 @@ const FeaturesProducts = () => {
       </div>
 
       <Link to={"/products"} className="flex items-center justify-center mt-5">
-        <ButtonSm variant="outline" text="Explore More" />
+        <ButtonSm text="Explore More" />
       </Link>
     </div>
   );

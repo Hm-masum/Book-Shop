@@ -9,17 +9,17 @@ import SectionTitle from "../common/SectionTitle";
 
 const AccordionComp = () => {
   return (
-    <div>
+    <div className="my-10">
       <SectionTitle
         heading="FAQ Questions"
         subHeading="what you want to know!"
       />
-      <div className="flex flex-col border border-gray-300 rounded-xl p-5 md:flex-row gap-5 items-center justify-between">
+      <div className="flex bg-white flex-col shadow-sm rounded-xl p-5 md:flex-row gap-5 items-center justify-between">
         <div className="w-full md:w-1/2">
           <img className="rounded-xl w-full md:h-[420px]" src={img} alt="" />
         </div>
         <div className="w-full md:w-1/2">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full text-xl">
             <AccordionItem value="item-1">
               <AccordionTrigger>How long does delivery take?</AccordionTrigger>
               <AccordionContent>
