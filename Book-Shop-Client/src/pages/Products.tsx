@@ -55,8 +55,8 @@ const Products = () => {
   if (isFetching) return <Loader />;
 
   return (
-    <div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 my-6">
+    <div className="my-10 px-2 md:max-w-7xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
         <div className="w-full">
           <Select onValueChange={setCategoryFilter}>
             <SelectPlaceholder text={"Filter with category"} />
@@ -145,7 +145,7 @@ const Products = () => {
           <Input
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
-            className=" border-gray-300 py-6"
+            className=" border-black py-6"
             type="text"
             placeholder="Search books"
           />
@@ -153,7 +153,7 @@ const Products = () => {
       </div>
 
       {/* single products */}
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5">
         {products?.data?.result?.map((product: TBook) => (
           <ProductCard key={product._id} product={product} />
         ))}

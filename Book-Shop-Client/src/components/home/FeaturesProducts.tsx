@@ -15,7 +15,7 @@ const FeaturesProducts = () => {
     <div>
       <SectionTitle heading="Features Books" subHeading="What we provides!" />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-5">
         {products?.data?.result?.slice(0, 8).map((product: TBook) => (
           <ProductCard key={product._id} product={product} />
         ))}

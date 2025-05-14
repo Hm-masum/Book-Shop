@@ -45,20 +45,20 @@ const ProfileDropdown = () => {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <NavLink className="w-full" to={`/dashboard/my-profile`}>
-              <ButtonSm size="md" variant="outline" text={"My Profile"} />
-            </NavLink>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
             {user?.role === "admin" ? (
-              <NavLink className="w-full" to={`/dashboard/all-order`}>
-                <ButtonSm size="md" variant="outline" text={"All Order"} />
+              <NavLink className="w-full" to={`/dashboard/statistics`}>
+                <ButtonSm size="md" variant="outline" text={"Dashboard"} />
               </NavLink>
             ) : (
               <NavLink className="w-full" to={`/dashboard/my-order`}>
                 <ButtonSm size="md" variant="outline" text={"My Order"} />
               </NavLink>
             )}
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <NavLink className="w-full" to={`/dashboard/my-profile`}>
+              <ButtonSm size="md" variant="outline" text={"My Profile"} />
+            </NavLink>
           </DropdownMenuItem>
           <DropdownMenuItem>
             <button onClick={handleLogout} className="w-full">

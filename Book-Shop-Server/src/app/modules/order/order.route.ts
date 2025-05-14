@@ -30,6 +30,6 @@ router.delete(
   OrderController.deleteOrder,
 );
 
-router.patch('/revenue', OrderController.calculateRevenue);
+router.get('/revenue', OrderController.calculateRevenue);
 
 export const OrderRoutes = router;

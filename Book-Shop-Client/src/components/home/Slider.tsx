@@ -18,14 +18,14 @@ const Slider = () => {
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           disableOnInteraction: false,
         }}
         pagination={{
           clickable: true,
         }}
         modules={[Autoplay, Pagination]}
-        className="mySwiper h-[30vh] md:h-[70vh] w-full"
+        className="mySwiper h-[40vh] md:h-[70vh] w-full"
       >
         <SwiperSlide>
           <SliderImg

@@ -4,7 +4,7 @@ import ButtonSm from "../components/common/ButtonSm";
 
 const ErrorPage = () => {
   return (
-    <div className="h-[100vh] flex flex-col items-center justify-center">
+    <div className="h-[100vh] flex flex-col items-center justify-center px-2 md:max-w-7xl mx-auto">
       <img
         className="w-[80%] md:w-[40%] h-[40%] md:h-[50%] "
         src={error}

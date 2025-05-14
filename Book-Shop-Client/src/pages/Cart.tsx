@@ -32,18 +32,18 @@ const Cart = () => {
   };
 
   return (
-    <div>
-      <div className="container mx-auto p-4">
+    <div className="px-2 md:max-w-7xl mx-auto">
+      <div className="container my-8">
         <h1 className="text-2xl font-semibold">My Cart</h1>
         <div className="grid lg:grid-cols-3 gap-10 py-5">
-          <div className="lg:col-span-2 overflow-y-auto">
+          <div className="lg:col-span-2 overflow-y-auto ">
             {/* Cart Create */}
             {items.length > 0 ? (
               <div className="space-y-3">
                 {items.map((item) => (
                   <div
                     key={item._id}
-                    className="flex border border-gray-300 rounded-lg items-center p-4"
+                    className="flex border bg-white border-gray-300 rounded-lg items-center p-4"
                   >
                     <div className="w-1/3 md:w-1/5 flex items-center justify-center">
                       <img
@@ -59,7 +59,7 @@ const Cart = () => {
                         </h3>
                         <p>Author : {item.author}</p>
                       </div>
-                      <div className="flex md:w-1/5 items-center justify-center">
+                      <div className="flex gap-1 md:w-1/5 items-center justify-center">
                         <button
                           onClick={() => handleIncrement(item)}
                           className="w-10 h-10 bg-gray-100 text-black rounded hover:bg-gray-300 font-semibold"
@@ -83,7 +83,7 @@ const Cart = () => {
                         onClick={() => dispatch(removeFromCart(item._id))}
                         className="md:w-1/5"
                       >
-                        <ButtonSm variant="outline" size="sm" text="remove" />
+                        <ButtonSm size="sm" text="remove" />
                       </p>
                     </div>
                   </div>
@@ -95,8 +95,8 @@ const Cart = () => {
           </div>
 
           {/* Order Summery */}
-          <div className="lg:col-span-1">
-            <div className="border border-gray-300 p-4 space-y-2 rounded-lg sticky top-24">
+          <div className="lg:col-span-1 ">
+            <div className="border bg-white border-gray-300 p-4 space-y-2 rounded-lg sticky top-24">
               <h2 className="text-lg font-semibold text-center">
                 Order Summary
               </h2>

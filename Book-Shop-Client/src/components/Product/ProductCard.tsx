@@ -1,5 +1,5 @@
 import { TProduct } from "../../type/product.type";
-import { HiHeart } from "react-icons/hi";
+import { FiShoppingCart } from "react-icons/fi";
 import "../../App.css";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -43,14 +43,14 @@ const ProductCard = ({ product }: TProduct) => {
 
   return (
     <Link to={`/products/${_id}`}>
-      <div className="space-y-4 bg-white rounded-md shadow-md hover:shadow-lg p-5">
+      <div className="space-y-4 bg-white rounded-md shadow-sm hover:shadow-lg p-3 md:p-5 h-full">
         <div className="relative">
-          <img src={image} className="mx-auto h-[350px] md:h-[250px]" alt="" />
+          <img src={image} className="mx-auto h-[180px] md:h-[230px]" alt="" />
           <div
             onClick={handleAddToCard}
             className="rounded-full p-2 absolute bg-slate-100 top-3 right-2 primary-color flex items-center justify-center"
           >
-            <HiHeart className="text-2xl font-semibold text-blue-600" />
+            <FiShoppingCart className="text-2xl font-semibold text-blue-700" />
           </div>
 
           <div className="absolute bottom-7 left-0">
@@ -66,12 +66,14 @@ const ProductCard = ({ product }: TProduct) => {
           </div>
         </div>
 
-        <div className="px-4 space-y-1">
-          <h2 className="text-xl font-semibold">{title}</h2>
-          <p className="text-gray-600">Author : {author}</p>
-          <div className=" flex items-center justify-between">
-            <p className="text-lg font-semibold">Price : {price} tk </p>
-            <p className="text-sm text-gray-600 font-title"> {category} </p>
+        <div className="md:px-4 flex flex-col justify-end md:gap-1">
+          <h2 className="text-lg md:text-xl font-semibold">{title}</h2>
+          <p className="text-gray-800">{author}</p>
+          <div className="flex flex-col-reverse md:flex-row md:items-center justify-between">
+            <p className="md:text-lg font-semibold text-gray-700">
+              Price : {price} tk{" "}
+            </p>
+            <p className="text-sm text-gray-500"> {category} </p>
           </div>
         </div>
       </div>

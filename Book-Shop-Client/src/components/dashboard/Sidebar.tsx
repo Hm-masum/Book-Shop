@@ -7,7 +7,7 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FaUsers } from "react-icons/fa6";
 import { FaUserCheck, FaBorderNone } from "react-icons/fa";
 import SidebarRoute from "./SidebarRoute";
-import { BsBookHalf, BsBook } from "react-icons/bs";
+import { BsBookHalf, BsBook, BsGraphUpArrow } from "react-icons/bs";
 import { MdProductionQuantityLimits } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
@@ -76,6 +76,14 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
+              {user?.role === "admin" && (
+                <SidebarRoute
+                  path={"statistics"}
+                  text={"Dashboard"}
+                  icons={<BsGraphUpArrow className="w-5 h-5" />}
+                />
+              )}
+
               {user?.role === "admin" && (
                 <SidebarRoute
                   path={"manage-products"}
